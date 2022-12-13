@@ -1,5 +1,6 @@
 package com.example.admin.controller;
 
+import com.example.admin.aop.SkipChecking;
 import com.example.admin.dto.ContactDTO;
 import com.example.admin.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class ContactController {
     @Autowired
     ContactService cs;
 
+    @SkipChecking
     @GetMapping("/selectContact")
     public ArrayList<ContactDTO> contactList(){
         return cs.contactList();
